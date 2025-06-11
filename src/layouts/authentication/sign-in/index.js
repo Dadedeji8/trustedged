@@ -233,7 +233,7 @@ function Basic() {
               </p>
               <div className='flex gap-2'>
                 <input className='p-2 border rounded text-sm focus:border-none w-full ' placeholder='Your Email address here' />
-                <button className='px-3 py-1 bg-white text-white rounded'>  Submit</button>
+                <button className='px-3 py-1 bg-blue-800 text-white rounded'>  Submit</button>
               </div>
             </Grid>
           </Grid>

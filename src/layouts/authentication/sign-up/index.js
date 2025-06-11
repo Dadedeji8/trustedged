@@ -328,7 +328,7 @@ function Cover() {
               </p>
               <div className='flex gap-2'>
                 <input className='p-2 border rounded text-xs focus:border-none w-full' placeholder='Your Email address here' />
-                <button className='px-3 py-1 bg-white text-black text-xs  rounded'>  Submit</button>
+                <button className='px-3 py-1 bg-blue-900 text-white text-xs  rounded'>  Submit</button>
               </div>
             </Grid>
           </Grid>
