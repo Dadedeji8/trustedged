@@ -183,7 +183,7 @@ function Basic() {
               </div>
               <div>
                 <p className='mt-2 text-gray-600 md:text-right text-[14px]'>
-                  <Link to={''}>Already have an account? <span>Click here</span> </Link>
+                  <Link to={'/authentication/sign-up'}>New here? <span>Click here</span> </Link>
                 </p>
               </div>
             </div>
