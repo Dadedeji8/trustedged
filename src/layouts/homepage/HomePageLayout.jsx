@@ -381,6 +381,7 @@ import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import BG from '../../assets/images/heroBGG.jpg'
 import './homepage.css'
+import HomePageNavBar from './components/HomePageNavBar';
 const stats = [
     { icon: Users, label: 'Active Customers', value: '2M+' },
     { icon: Shield, label: 'Service Uptime', value: '99.9%' },
@@ -427,6 +428,7 @@ export default function TrustedgeLanding() {
     return (
         <div className="font-sans text-gray-800 bg-white w-full overflow-hidden">
             {/* Hero */}
+            <HomePageNavBar />
             <section className=" hero text-white py-20 px-6 text-center h-[70dvh] flex items-center flex-col justify-center " data-aos="fade-down">
                 <h1 className="text-5xl font-bold mb-4">Your Trusted Banking Partner</h1>
                 <p className="text-xl mb-6">Experience banking designed for you.</p>
