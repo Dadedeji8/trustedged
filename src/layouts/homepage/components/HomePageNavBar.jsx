@@ -7,7 +7,7 @@ const HomePageNavBar = () => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <nav className=" shadow-md px-6 py-4 flex  top-0 justify-between items-center w-full fixed bg-white z-20 mb-20">
-            <div className="text-2xl font-bold text-blue-600">TrustEdged Bank</div>
+            <div className="text-2xl font-bold text-blue-600 cursor-pointer"><Link to={'/'}>TrustEdged Bank</Link></div>
 
             <div className="hidden md:flex space-x-6">
                 <Button variant="border border-solid  border-blue-600"><Link to={'/authentication/sign-in'}>Sign In</Link></Button>

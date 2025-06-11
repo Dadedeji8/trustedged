@@ -188,7 +188,7 @@ function Cover() {
               <div className='flex w-full gap-5 flex-col md:flex-row'>
                 <div className='flex flex-1 flex-col gap-1 mt-3'>
                   <label className=' '>
-                    Enter Your Age*
+                    Enter Your Date of Birth*
                   </label>
                   <input type='date' className='py-3 px-4 rounded-xl border border-solid border-gray-300 bg-[#F3F3FF] focus:outline-none focus:border-gray-600' placeholder='Enter Your Age' name="age"
                     value={formData.age}
@@ -309,15 +309,11 @@ function Cover() {
               <h1 className='font-bold text-white mb-8'>
                 Contact Us
               </h1>
+
               <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
+                1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
               </p>
-              <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
-              </p>
-              <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
-              </p>
+
             </Grid>
             <Grid item md={3} className='font-bold text-white'>
               <h1 className='font-bold text-white mb-8'>
