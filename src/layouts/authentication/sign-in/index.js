@@ -196,7 +196,7 @@ function Basic() {
           <Grid container spacing={4} className='my-5'>
             <Grid item md={3}>
               <h1 className='font-bold text-white mb-8 text-2xl'>
-                Nexus Bank
+                TrustEdged Bank
               </h1>
               <p className='text-[16px] text-white'>
                 We provide reliable financial solutions to support your goals with security and personalized service. Your success is our priority.
@@ -215,14 +215,9 @@ function Basic() {
                 Contact Us
               </h1>
               <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
+                1600 Amphitheatre Parkway, Mountain View, CA 94043, USA
               </p>
-              <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
-              </p>
-              <p className='text-[16px]'>
-                123 the main street Available to everyone ,USA
-              </p>
+
             </Grid>
             <Grid item md={3} className='font-bold text-white'>
               <h1 className='font-bold text-white mb-8'>
