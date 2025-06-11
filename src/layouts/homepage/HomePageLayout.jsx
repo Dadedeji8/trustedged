@@ -442,6 +442,84 @@ export default function TrustedgeLanding() {
                 </div>
             </section>
 
+
+            {/* Banking With Us Cards */}
+            <section className="py-20 px-6 bg-blue-50" data-aos="fade-up">
+                <div className="max-w-6xl mx-auto">
+                    <h2 className="text-3xl font-bold text-blue-800 text-center mb-10">Banking With Us</h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        {[
+                            {
+                                icon: <CreditCard className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Easy Account Opening",
+                                text: "Open your account online in minutes and start banking instantly.",
+                            },
+                            {
+                                icon: <PiggyBank className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Smart Savings",
+                                text: "Automate your savings and reach your financial goals faster.",
+                            },
+                            {
+                                icon: <Lock className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Secure Transactions",
+                                text: "Your funds and data are protected with industry-leading security.",
+                            },
+                            {
+                                icon: <Smartphone className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Mobile Banking",
+                                text: "Bank anywhere, anytime with our intuitive mobile app.",
+                            },
+                            {
+                                icon: <Award className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Award-Winning Support",
+                                text: "Get help from our friendly team 24/7, whenever you need it.",
+                            },
+                            {
+                                icon: <TrendingUp className="w-8 h-8 text-blue-600 mb-3" />,
+                                title: "Financial Growth",
+                                text: "Access tools and advice to grow your wealth with confidence.",
+                            },
+                        ].map((card, idx) => (
+                            <div
+                                key={idx}
+                                className="bg-white rounded-xl shadow p-6 text-center hover:shadow-lg transition m-auto"
+                                data-aos="fade-up"
+                                data-aos-delay={idx * 100}
+                            >
+                                <div className='flex justify-center items-center text-center m-auto'>{card.icon}</div>
+                                <h3 className="font-bold text-lg text-blue-900 mb-2 text-center">{card.title}</h3>
+                                <p className="text-gray-700 text-sm">{card.text}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Image and Text Side by Side */}
+            <section className="py-20 px-6 bg-white" data-aos="fade-left">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+                    <div className="md:w-1/2 w-full" data-aos="zoom-in">
+                        <img
+                            src={BG}
+                            alt="Banking with Trustedged"
+                            className="rounded-xl shadow-lg w-full object-cover"
+                        />
+                    </div>
+                    <div className="md:w-1/2 w-full" data-aos="fade-right">
+                        <h2 className="text-3xl font-bold text-blue-800 mb-4">Experience the Difference</h2>
+                        <p className="text-gray-700 text-lg mb-4">
+                            At Trustedged, we combine technology and a human touch to deliver banking that fits your lifestyle. Whether you’re saving for the future, growing your business, or managing daily expenses, our team is here to support you every step of the way.
+                        </p>
+                        <ul className="list-disc list-inside text-blue-700 font-medium space-y-2">
+                            <li>Personalized financial advice</li>
+                            <li>Modern, easy-to-use digital tools</li>
+                            <li>Community-focused values</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+
             {/* Stats */}
             <section className="py-16 px-6 bg-blue-50" data-aos="fade-up">
                 <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
