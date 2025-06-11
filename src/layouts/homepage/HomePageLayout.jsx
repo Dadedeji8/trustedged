@@ -12,6 +12,7 @@ import { Pagination } from 'swiper/modules';
 import BG from '../../assets/images/heroBGG.jpg'
 import sideImg from '../../assets/images/young.jpg'
 import './homepage.css'
+import { useNavigate } from 'react-router-dom';
 import HomePageNavBar from './components/HomePageNavBar';
 const stats = [
     { icon: Users, label: 'Active Customers', value: '2M+' },
@@ -52,10 +53,15 @@ const testimonials = [
 ];
 
 export default function TrustedgeLanding() {
+    const navigate = useNavigate();
     useEffect(() => {
         AOS.init({ duration: 800 });
     }, []);
-
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            navigate('/dashboard');
+        }
+    }, [])
     return (
         <div className="font-sans text-gray-800 bg-white w-full overflow-hidden">
             {/* Hero */}

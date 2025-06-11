@@ -14,12 +14,14 @@ function UsersTableComponent() {
   const formattedAllUsers = allUsers.map((user) => ({
     ...user,
     account: {
-      balance: user.account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2 }),
+      balance: user.account.balance.toLocaleString('en-US', { style: 'currency', currency: user.account.currency, minimumFractionDigits: 0, maximumFractionDigits: 2 }),
+      currency: user.account.currency
     },
     isAdmin: user.isAdmin ? 'Admin' : 'User',
     isActive: user.isActive ? 'Active' : 'Disabled',
     createdAt: moment(user.createdAt).format('DD MMM yyy'),
     action: <UserActionMenu rowId={user._id} wallet={user.account.balance.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 2 })} isActive={user.isActive} />,
+
   }))
   return (
     <div className="">
@@ -34,6 +36,7 @@ function UsersTableComponent() {
             { Header: 'Age', accessor: 'age' },
             { Header: 'Gender', accessor: 'gender' },
             { Header: 'Country', accessor: 'country' },
+            { Header: 'currency', accessor: 'account.currency' },
             { Header: 'Balance', accessor: 'account.balance' },
             { Header: 'Date', accessor: 'createdAt' },
             { Header: 'Type', accessor: 'isAdmin' },
