@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import BG from '../../assets/images/heroBGG.jpg'
+import sideImg from '../../assets/images/young.jpg'
 import './homepage.css'
 import HomePageNavBar from './components/HomePageNavBar';
 const stats = [
@@ -130,7 +131,7 @@ export default function TrustedgeLanding() {
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
                     <div className="md:w-1/2 w-full" data-aos="zoom-in">
                         <img
-                            src={BG}
+                            src={sideImg}
                             alt="Banking with Trustedged"
                             className="rounded-xl shadow-lg w-full object-cover"
                         />
