@@ -50,11 +50,13 @@ function UsersTableComponent() {
 export default UsersTableComponent
 
 const UserActionMenu = ({ rowId, wallet, isActive }) => {
-  const { adminUpdateUserWallet, adminDisableUser, AdminDeleteUser } = useAuth()
+  const { adminUpdateUserWallet, adminDisableUser, AdminDeleteUser, updatedCurrency } = useAuth()
   const [anchorEl, setAnchorEl] = useState(null);
   const [openDialog, setOpenDialog] = useState(false);
+  const [openCurrencyDialog, setOpenCurrencyDialog] = useState(false);
   const [accountDetail, setAccountDetail] = useState({})
   const [walletAmount, setWalletAmount] = useState(wallet);
+  const [currency, setCurrency] = useState('USD');
   const open = Boolean(anchorEl);
   const { profile } = useAuth()
   const handleClick = (event) => {
@@ -62,6 +64,9 @@ const UserActionMenu = ({ rowId, wallet, isActive }) => {
   };
 
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleCurrencyClose = () => {
     setAnchorEl(null);
   };
   const handleUpdateWalletData = (e) => {
@@ -72,9 +77,17 @@ const UserActionMenu = ({ rowId, wallet, isActive }) => {
     setOpenDialog(true);
     handleClose();
   };
+  const handleCurrencyDialogOpen = () => {
+    setOpenCurrencyDialog(true);
+    handleCurrencyClose();
+  };
+
 
   const handleDialogClose = () => {
     setOpenDialog(false);
+  };
+  const handleCurrencyDialogClose = () => {
+    setOpenCurrencyDialog(false);
   };
 
   const handleWalletUpdate = async () => {
@@ -100,6 +113,20 @@ const UserActionMenu = ({ rowId, wallet, isActive }) => {
   useEffect(() => {
     console.log(accountDetail)
   }, [accountDetail])
+
+  const handleCurrencyChange = (event) => {
+    setCurrency(event.target.value);
+  }
+  useEffect(() => { console.log(currency) }, [currency])
+  const updateCurrency = async () => {
+    try {
+      await updatedCurrency({ targetUserId: rowId, currency }); // ✅ Added `await`
+      toast.success('Currency updated successfully');
+      handleCurrencyDialogClose(); // Optional: Close dialog on success
+    } catch (error) {
+      toast.error('Failed to update currency');
+    }
+  };
 
   return (
     <div>
@@ -127,6 +154,7 @@ const UserActionMenu = ({ rowId, wallet, isActive }) => {
           handleClose()
         }}>{isActive ? "Disable" : "Activate"}</MenuItem>
         <MenuItem onClick={handleDialogOpen}>Update Wallet</MenuItem>
+        <MenuItem onClick={handleCurrencyDialogOpen}>Update Currency</MenuItem>
         <MenuItem onClick={deleteUser(rowId)}>Delete User</MenuItem>
       </Menu>
       <Dialog open={openDialog} onClose={handleDialogClose} maxWidth="sm" fullWidth>
@@ -170,6 +198,27 @@ const UserActionMenu = ({ rowId, wallet, isActive }) => {
         <DialogActions>
           <Button onClick={handleDialogClose}>Cancel</Button>
           <Button onClick={handleWalletUpdate}>Update</Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog open={openCurrencyDialog} onClose={handleCurrencyDialogClose} maxWidth="sm" fullWidth>
+        <DialogTitle>Update Currency</DialogTitle>
+        <DialogContent>
+
+
+          <select
+            name="currency"
+            id="currency"
+            onChange={handleCurrencyChange} // ✅ Direct function reference
+            value={currency}
+            className="p-2 rounded bg-white"
+          >
+            <option value="USD">USD</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCurrencyDialogClose}>Cancel</Button>
+          <Button onClick={updateCurrency}>Save</Button>
         </DialogActions>
       </Dialog>
     </div>

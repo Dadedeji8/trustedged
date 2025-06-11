@@ -189,7 +189,7 @@ const Receipt = () => {
                 myHeaders.append("Content-Type", "application/json")
 
                 const response = await fetch(
-                    `https://nexas-bank-seven.vercel.app/api/bank/history?id=${id}`,
+                    `https://trustedged-backend.vercel.app/api/bank/history?id=${id}`,
                     {
                         method: "GET",
                         headers: myHeaders,

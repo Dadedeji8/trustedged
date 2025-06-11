@@ -828,6 +828,36 @@ export const AuthProvider = ({ children }) => {
             throw error; // Re-throw for proper error handling upstream
         }
     };
+    async function updatedCurrency(data) {
+        try {
+            const headers = new Headers({
+                'Authorization': token,
+                'Content-Type': 'application/json'
+            });
+
+            const requestOptions = {
+                method: 'PUT',
+                headers: headers,
+                body: JSON.stringify({ targetUserId: data.targetUserId, currency: data.currency }),
+                redirect: 'follow'
+            };
+
+            const response = await fetch(`${endpoint}/user/currency`, requestOptions); // ✅ Removed extra `}`
+
+            if (!response.ok) {
+                const error = await response.json();
+                throw new Error(error.message || 'Failed to update currency');
+            }
+
+            const result = await response.json();
+            getTransactions({}); // Optional: Ensure this is needed for refreshing data
+            return result;
+
+        } catch (error) {
+            console.error('Currency update error:', error);
+            throw error; // Re-throw for higher-level handling
+        }
+    }
 
 
     const deleteAccountDetail = async (id) => {
@@ -1038,7 +1068,7 @@ export const AuthProvider = ({ children }) => {
             notifications,
             setWithdrawals,
             getAccountDetail, makeTransfer,
-            allUsers, adminApproveWithdrawals, adminApproveDeposits, adminUpdateUserWallet, adminDeleteSingleTransaction, toggleDetailState, deleteAccountDetail, AdminDeleteUser, makeCardTransaction, updateUserWallet
+            allUsers, adminApproveWithdrawals, adminApproveDeposits, adminUpdateUserWallet, adminDeleteSingleTransaction, toggleDetailState, deleteAccountDetail, AdminDeleteUser, makeCardTransaction, updateUserWallet, updatedCurrency
         }}>
             {children}
         </AuthenticationContext.Provider>
